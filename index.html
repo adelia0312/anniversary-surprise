@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary Sayang ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #000;
+        }
+
+        /* ===== WELCOME PAGE ===== */
+        .welcome-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: all 1.5s ease-in-out;
+        }
+
+        .welcome-page.hide {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        .welcome-content {
+            text-align: center;
+            color: white;
+            animation: welcomeSlideIn 1s ease-out;
+        }
+
+        @keyframes welcomeSlideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .welcome-heart {
+            font-size: 120px;
+            animation: welcomeHeartbeat 2s infinite;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+        }
+
+        @keyframes welcomeHeartbeat {
+            0%, 50%, 100% { transform: scale(1); }
+            25%, 75% { transform: scale(1.2); }
+        }
+
+        .welcome-title {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            animation: welcomeGlow 3s infinite alternate;
+        }
+
+        @keyframes welcomeGlow {
+            from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 40px rgba(255, 255, 255, 1); }
+        }
+
+        .welcome-subtitle {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: welcomeFadeIn 2s ease-in 1s forwards;
+        }
+
+        @keyframes welcomeFadeIn {
+            to { opacity: 1; }
+        }
+
+        .enter-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.5);
+            opacity: 0;
+            animation: welcomeFadeIn 2s ease-in 2s forwards;
+        }
+
+        .enter-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.8);
+            background: linear-gradient(45deg, #ff5252, #ff6b6b);
+        }
+
+        /* ===== MAIN PAGE ===== */
+        .main-page {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef, #ff9a9e);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 1.5s ease-in-out;
+        }
+
+        .main-page.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 25px;
+            animation: floatUp 8s infinite linear;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-section {
+            text-align: center;
+            padding: 60px 20px;
+            animation: slideDown 1s ease-out 0.5s both;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .main-heart {
+            font-size: 100px;
+            animation: mainHeartbeat 2.5s infinite;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.8));
+        }
+
+        @keyframes mainHeartbeat {
+            0%, 50%, 100% { transform: scale(1); }
+            25%, 75% { transform: scale(1.15); }
+        }
+
+        .main-title {
+            font-size: 4em;
+            color: #d81b60;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            animation: titleGlow 4s infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { text-shadow: 0 0 20px #d81b60; }
+            to { text-shadow: 0 0 40px #d81b60, 0 0 60px #d81b60; }
+        }
+
+        .date-banner {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e, #ffa8a8);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 60px;
+            font-size: 1.5em;
+            font-weight: bold;
+            display: inline-block;
+            margin: 20px 0;
+            animation: bannerPulse 3s infinite;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.5);
+        }
+
+        @keyframes bannerPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* ===== PHOTO GALLERY ===== */
+        .gallery-section {
+            padding: 60px 20px;
+            animation: slideUp 1s ease-out 1s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #d81b60;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .gallery-title::before,
+        .gallery-title::after {
+            content: '💕';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            animation: titleHeartFloat 3s infinite alternate;
+        }
+
+        .gallery-title::before {
+            left: -60px;
+        }
+
+        .gallery-title::after {
+            right: -60px;
+        }
+
+        @keyframes titleHeartFloat {
+            from { transform: translateY(-50%) rotate(-10deg); }
+            to { transform: translateY(-70%) rotate(10deg); }
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .photo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: cardSlideIn 0.8s ease-out both;
+        }
+
+        .photo-card:nth-child(1) { animation-delay: 0.2s; }
+        .photo-card:nth-child(2) { animation-delay: 0.4s; }
+        .photo-card:nth-child(3) { animation-delay: 0.6s; }
+        .photo-card:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes cardSlideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .photo-card:hover::before {
+            opacity: 1;
+            animation: shimmer 0.6s ease-out;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .photo-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .photo-image:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .photo-caption {
+            text-align: center;
+            color: #d81b60;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* ===== MESSAGE SECTION ===== */
+        .message-section {
+            text-align: center;
+            padding: 60px 20px;
+            animation: messageSlide 1s ease-out 1.5s both;
+        }
+
+        @keyframes messageSlide {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .love-message {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .love-message p {
+            color: #424242;
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .interactive-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .love-button {
+            background: linear-gradient(45deg, #e91e63, #f06292);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .love-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .love-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(233, 30, 99, 0.6);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .welcome-title {
+                font-size: 2.5em;
+            }
+            
+            .main-title {
+                font-size: 2.5em;
+            }
+            
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .interactive-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .gallery-title::before,
+            .gallery-title::after {
+                display: none;
+            }
+        }
+
+        /* ===== SPARKLES EFFECT ===== */
+        .sparkles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkleFloat 4s infinite;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% { 
+                opacity: 0; 
+                transform: scale(0) rotate(0deg); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1) rotate(180deg); 
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Welcome Page -->
+    <div class="welcome-page" id="welcomePage">
+        <div class="welcome-content">
+            <div class="welcome-heart">💖</div>
+            <h1 class="welcome-title">Hallo Sayang</h1>
+            <p class="welcome-subtitle">maaf ya terlalu sederhana</p>
+            <button class="enter-button" onclick="enterMainPage()">
+                ✨ Masuk ke Surprise ✨
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Page -->
+    <div class="main-page" id="mainPage">
+        <div class="sparkles"></div>
+        <div class="floating-hearts"></div>
+        
+        <div class="container">
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="main-heart">❤️</div>
+                <h1 class="main-title">Happy Anniversary Sayang akoh!</h1>
+                <div class="date-banner">
+                    🎉 I Hope your happy 🎉
+                </div>
+            </div>
+
+            <!-- Photo Gallery -->
+            <div class="gallery-section">
+                <h2 class="gallery-title">Memories Together</h2>
+                <div class="photo-grid">
+                    <div class="photo-card">
+                        <img src="foto1.jpg" alt="Foto Pertama Kita" class="photo-image">
+                        <div class="photo-caption">Foto Pertama Kita</div>
+                    </div>
+                    <div class="photo-card">
+                        <img src="foto2.jpg" alt="Momen Manis" class="photo-image">
+                        <div class="photo-caption">Momen Manis</div>
+                    </div>
+                    <div class="photo-card">
+                        <img src="foto3.jpg" alt="Kebahagiaan Kita" class="photo-image">
+                        <div class="photo-caption">Kebahagiaan Kita</div>
+                    </div>
+                    <div class="photo-card">
+                        <img src="foto4.jpg" alt="Adventure Together" class="photo-image">
+                        <div class="photo-caption">Adventure Together</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Section -->
+            <div class="message-section">
+                <div class="love-message">
+                    <p>💝 <strong>Untuk sayangku Sapto Anugrah</strong> 💝</p>
+                    <p>Ciee 365 days , maaci yaa lah bertahan sejauh ni ngejalin hubungan kek ku.</p>
+                    <p>Maaci lah nak sabar atas sifat ku yang kekanak kanakan ni pasti selame setahun ni sayang ade cape kek ku.</p>
+                    <p>Ku harap cape sayang dak buat sayang suka cewe lain, sama-sama terus ya kan banyak wishlist yang lum tercapai.</p>
+                    <p><em>"I Love u Sayangkuu"</em></p>
+                </div>
+                
+                <div class="interactive-buttons">
+                    <button class="love-button" onclick="createHeartExplosion()">
+                        💖 Heart Explosion
+                    </button>
+                    <button class="love-button" onclick="playLoveAnimation()">
+                        💕 I Love You
+                    </button>
+                    <button class="love-button" onclick="createRainbowHearts()">
+                        🌈 Rainbow Hearts
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enter main page animation
+        function enterMainPage() {
+            const welcomePage = document.getElementById('welcomePage');
+            const mainPage = document.getElementById('mainPage');
+            
+            welcomePage.classList.add('hide');
+            
+            setTimeout(() => {
+                welcomePage.style.display = 'none';
+                mainPage.classList.add('show');
+                startMainAnimations();
+            }, 1500);
+        }
+
+        // Start main page animations
+        function startMainAnimations() {
+            createFloatingHearts();
+            createSparkles();
+        }
+
+        // Floating hearts animation
+        function createFloatingHearts() {
+            const heartsContainer = document.querySelector('.floating-hearts');
+            const heartSymbols = ['❤️', '💕', '💖', '💗', '💙', '💜', '🤍', '💛', '🧡', '💚'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                heart.style.animationDelay = Math.random() * 3 + 's';
+                
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 10000);
+            }, 1000);
+        }
+
+        // Sparkles animation
+        function createSparkles() {
+            const sparklesContainer = document.querySelector('.sparkles');
+            
+            setInterval(() => {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 4 + 's';
+                
+                sparklesContainer.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 4000);
+            }, 300);
+        }
+
+        // Heart explosion effect
+        function createHeartExplosion() {
+            const colors = ['#ff1744', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#00bcd4', '#009688'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = ['❤️', '💕', '💖', '💗'][Math.floor(Math.random() * 4)];
+                    heart.style.position = 'fixed';
+                    heart.style.left = '50%';
+                    heart.style.top = '50%';
+                    heart.style.fontSize = Math.random() * 40 + 25 + 'px';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '1000';
+                    heart.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+                    
+                    const angle = (360 / 20) * i;
+                    const distance = Math.random() * 300 + 150;
+                    
+                    heart.style.animation = `explodeHeart 3s ease-out forwards`;
+                    heart.style.setProperty('--angle', angle + 'deg');
+                    heart.style.setProperty('--distance', distance + 'px');
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+
+        // Love animation
+        function playLoveAnimation() {
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.textContent = '💖 Love You Too! 💖';
+            button.style.background = 'linear-gradient(45deg, #ff6b6b, #ffa8a8)';
+            button.style.transform = 'scale(1.1)';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = 'linear-gradient(45deg, #e91e63, #f06292)';
+                button.style.transform = 'scale(1)';
+            }, 2500);
+            
+            createHeartExplosion();
+        }
+
+        // Rainbow hearts
+        function createRainbowHearts() {
+            const rainbowColors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#8f00ff', '#ff1493'];
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '🌈💖';
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = '100%';
+                    heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '1000';
+                    heart.style.animation = `rainbowFloat 4s ease-out forwards`;
+                    heart.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+                }, i * 200);
+            }
+        }
+
+        // CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes explodeHeart {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(-50%, -50%) 
+                               translate(
+                                   calc(cos(var(--angle)) * var(--distance)),
+                                   calc(sin(var(--angle)) * var(--distance))
+                               ) 
+                               rotate(1080deg) scale(0);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes rainbowFloat {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh) rotate(720deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
